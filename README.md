@@ -48,4 +48,5 @@ The Architecture Components and Libraries am using in the Development of the who
   * [Coroutines](https://developer.android.com/kotlin/coroutines?gclid=CjwKCAjwk_WVBhBZEiwAUHQCmdx8rjojm7dxpQ2EGOYQydzDN3DbqnzZBC0nq-GGzvdmCvnnFYvgFRoCyPEQAvD_BwE&gclsrc=aw.ds) - Is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously
   * [Flow](https://developer.android.com/kotlin/flow) - Is a type that can emit multiple values sequentially, as opposed to suspend functions that return only a single value.
   * [Room](https://developer.android.com/training/data-storage/room) - Provide an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite
+  * [Retrofit](https://square.github.io/retrofit/) - Class through which API Interfaces turn callable objects
   * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwjJmIBhA4EiwAQdCbxrvUiq3wgakPX8sop8Kp8irusL4bi_9xCnaiZkUJqBzTbOTB2FB4XRoCujoQAvD_BwE&gclsrc=aw.ds) - Manage UI related data in a lifecycle conscious way and act as a channel between use cases and ui
