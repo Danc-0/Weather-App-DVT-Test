@@ -7,11 +7,12 @@ import com.danc.weatherdvt.domain.repositories.OpenWeatherRepository
 import javax.inject.Inject
 
 class OpenWeatherRepositoryImpl @Inject constructor(private val service: OpenWeatherService): OpenWeatherRepository {
-    override suspend fun getCurrentLocationWeather(): CurrentLocationWeather {
-        TODO("Not yet implemented")
+
+    override suspend fun getCurrentLocationWeather(lat: Double, long: Double): CurrentLocationWeather {
+      return service.getCurrentLocationWeather(lat, long)
     }
 
-    override suspend fun getCurrentWeatherForecast(): CurrentWeatherForecast {
-        TODO("Not yet implemented")
+    override suspend fun getCurrentWeatherForecast(lat: Double, long: Double): CurrentWeatherForecast {
+       return service.getCurrentWeatherForecast(lat, long)
     }
 }

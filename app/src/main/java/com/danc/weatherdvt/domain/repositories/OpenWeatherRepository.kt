@@ -5,8 +5,8 @@ import com.danc.weatherdvt.domain.models.weather.CurrentLocationWeather
 
 interface OpenWeatherRepository {
 
-    suspend fun getCurrentLocationWeather(): CurrentLocationWeather
+    suspend fun getCurrentLocationWeather(lat: Double, long: Double): CurrentLocationWeather
 
-    suspend fun getCurrentWeatherForecast(): CurrentWeatherForecast
+    suspend fun getCurrentWeatherForecast(lat: Double, long: Double): CurrentWeatherForecast
 
 }

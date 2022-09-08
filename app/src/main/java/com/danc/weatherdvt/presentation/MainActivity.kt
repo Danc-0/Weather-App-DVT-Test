@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         transparentSystemBars()
 
-        if (NetworkConnection().checkForInternet(this)){
+        if (!NetworkConnection().checkForInternet(this)){
             CustomDialog().show(supportFragmentManager, "CustomDialog")
         }
 
