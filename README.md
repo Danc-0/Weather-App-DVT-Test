@@ -48,6 +48,12 @@ The Architecture Components and Libraries am using in the Development of the who
   * [Room](https://developer.android.com/training/data-storage/room) - Provide an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite
   * [Retrofit](https://square.github.io/retrofit/) - Class through which API Interfaces turn callable objects
   * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwjJmIBhA4EiwAQdCbxrvUiq3wgakPX8sop8Kp8irusL4bi_9xCnaiZkUJqBzTbOTB2FB4XRoCujoQAvD_BwE&gclsrc=aw.ds) - Manage UI related data in a lifecycle conscious way and act as a channel between use cases and ui
+
+# Screenshots
+This is a short demo of how the application looks like
+
+|<img src="images/first_screen.jpg" width=200/>|<img src="images/second_screen.jpg" width=200/>|
+|:----:|:----:|
   
  ## Areas of Improvements
 I did not do all the extras.
