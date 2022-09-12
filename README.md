@@ -48,3 +48,10 @@ The Architecture Components and Libraries am using in the Development of the who
   * [Room](https://developer.android.com/training/data-storage/room) - Provide an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite
   * [Retrofit](https://square.github.io/retrofit/) - Class through which API Interfaces turn callable objects
   * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwjJmIBhA4EiwAQdCbxrvUiq3wgakPX8sop8Kp8irusL4bi_9xCnaiZkUJqBzTbOTB2FB4XRoCujoQAvD_BwE&gclsrc=aw.ds) - Manage UI related data in a lifecycle conscious way and act as a channel between use cases and ui
+  
+ ## A few hiccups
+I did not do all the extras.
+
+I have noticed a white screen just when the app is launching and I think It will be best to add a Splash Screen at that point while the app in loading from the backgroud.
+
+Will be updating that soon.
