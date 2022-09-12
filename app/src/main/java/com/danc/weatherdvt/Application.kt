@@ -9,7 +9,6 @@ import kotlinx.coroutines.SupervisorJob
 @HiltAndroidApp
 class Application: Application() {
 
-
     private val applicationScope = CoroutineScope(SupervisorJob())
 //    val database by lazy { WeatherDatabase.getWeatherDatabase(this, applicationScope) }
 

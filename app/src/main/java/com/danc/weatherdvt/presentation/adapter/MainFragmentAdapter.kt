@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.danc.weatherdvt.R
 import com.danc.weatherdvt.utils.Utils.Companion.tempInCelsius
 import com.danc.weatherdvt.domain.models.forecast.WeatherItem
+import com.danc.weatherdvt.utils.Utils.Companion.getShortDate
+import com.danc.weatherdvt.utils.Utils.Companion.stringtoDate
 import kotlinx.android.synthetic.main.fragment_weather_forecast.view.*
 import java.sql.Date
 
@@ -23,8 +25,7 @@ class MainFragmentAdapter(var weatherForecast: List<WeatherItem>): RecyclerView.
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val forecastItem: WeatherItem = weatherForecast[position]
-        val date = Date(forecastItem.dt.toLong())
-        holder.itemView.forecast_day.text = date.toString()
+        holder.itemView.forecast_day.text = forecastItem.dt_txt
         holder.itemView.temperature.text = tempInCelsius(forecastItem.main.temp)
         when(forecastItem.weather[0].main){
             "Rain" -> {
