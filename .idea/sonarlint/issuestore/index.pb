@@ -3,14 +3,6 @@
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 u
 Eapp/src/main/java/com/danc/weatherdvt/domain/models/weather/Clouds.kt,2/e/2ea1ad0c6f5dc11cad110639ea80fc4174243b86
-p
-@app/src/main/java/com/danc/weatherdvt/utils/NetworkConnection.kt,a/7/a732554134a235df17ac33d97884c878ec309928
-g
-7app/src/main/java/com/danc/weatherdvt/utils/Resource.kt,5/7/57cfa2c6f6c9a17a55f5143b1a50835f506905c3
-t
-Dapp/src/main/java/com/danc/weatherdvt/utils/NetworkErrorException.kt,a/c/ace6785eb12eb6ac5de2a11b9411bc240911eac7
-d
-4app/src/main/java/com/danc/weatherdvt/utils/State.kt,1/e/1e6d41e01a4703a7beda264889cadde096e498a9
 B
 apikeys.properties,d/1/d1bf5d45cba7c55e615c32645807f459a3088379
 :
