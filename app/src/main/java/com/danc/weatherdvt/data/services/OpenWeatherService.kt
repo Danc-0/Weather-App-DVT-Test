@@ -11,6 +11,6 @@ interface OpenWeatherService {
     suspend fun getCurrentLocationWeather(@Query("lat") latitude: Double, @Query("lon") longitude: Double) : CurrentLocationWeather
 
     @GET("/data/2.5/forecast")
-    suspend fun getCurrentWeatherForecast(@Query("lat") latitude: Double, @Query("lon") longitude: Double): CurrentWeatherForecast
+    suspend fun getCurrentWeatherForecast(@Query("lat") latitude: Double, @Query("lon") longitude: Double, @Query("cnt") cnt: Int): CurrentWeatherForecast
 
 }

@@ -10,6 +10,40 @@
         android:id="@+id/mainFragment"
         android:name="com.danc.weatherdvt.presentation.fragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_favouritePlacesFragment"
+            app:destination="@id/favouritePlacesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_savedPlacesFragment"
+            app:destination="@id/savedPlacesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouritePlacesFragment"
+        android:name="com.danc.weatherdvt.presentation.fragments.FavouritePlacesFragment"
+        android:label="fragment_favourite_places"
+        tools:layout="@layout/fragment_favourite_places" >
+        <action
+            android:id="@+id/action_favouritePlacesFragment_to_placeDetailsFragment"
+            app:destination="@id/placeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeDetailsFragment"
+        android:name="com.danc.weatherdvt.presentation.fragments.PlaceDetailsFragment"
+        android:label="fragment_place_details"
+        tools:layout="@layout/fragment_place_details" />
+    <fragment
+        android:id="@+id/savedPlacesFragment"
+        android:name="com.danc.weatherdvt.presentation.fragments.SavedPlacesFragment"
+        android:label="fragment_saved_places"
+        tools:layout="@layout/fragment_saved_places" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.danc.weatherdvt.presentation.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

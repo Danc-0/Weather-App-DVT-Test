@@ -1,12 +1,18 @@
 package com.danc.weatherdvt.di
 
+import android.content.Context
+import androidx.room.Room
+import com.danc.weatherdvt.BuildConfig
 import com.danc.weatherdvt.data.repository.OpenWeatherRepositoryImpl
+import com.danc.weatherdvt.data.room.WeatherDao
+import com.danc.weatherdvt.data.room.WeatherDatabase
 import com.danc.weatherdvt.data.services.OpenWeatherService
 import com.danc.weatherdvt.domain.repositories.OpenWeatherRepository
 import com.danc.weatherdvt.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -19,10 +25,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    var apiKey: String = BuildConfig.API_KEY
+
     private val api_interceptor = Interceptor {
         val originalRequest = it.request()
         val newHttpUrl = originalRequest.url.newBuilder()
-            .addQueryParameter("appid", Constants.apiKey)
+            .addQueryParameter("appid", apiKey)
             .build()
         val newRequest = originalRequest.newBuilder()
             .url(newHttpUrl)
@@ -51,7 +59,23 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideOpenWeatherRepository(service: OpenWeatherService): OpenWeatherRepository {
-        return OpenWeatherRepositoryImpl(service)
+    fun provideOpenWeatherRepository(service: OpenWeatherService, weatherDao: WeatherDao): OpenWeatherRepository {
+        return OpenWeatherRepositoryImpl(service, weatherDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherDatabase(@ApplicationContext appContext: Context): WeatherDatabase {
+        return Room.databaseBuilder(
+            appContext,
+            WeatherDatabase::class.java,
+            "weather_database"
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherDao(appDatabase: WeatherDatabase): WeatherDao {
+        return appDatabase.weatherDao()
     }
 }

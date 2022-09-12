@@ -15,7 +15,7 @@ class CurrentWeatherForecastUseCase(private val openWeatherRepository: OpenWeath
     operator fun invoke(): Flow<Resource<CurrentWeatherForecast>> = flow {
         try {
             emit(Resource.Loading())
-            val currentLocationWeather = openWeatherRepository.getCurrentWeatherForecast(44.34, 10.99)
+            val currentLocationWeather = openWeatherRepository.getCurrentWeatherForecast(44.34, 10.99, 5)
             emit(Resource.Success(currentLocationWeather))
         } catch (exception: HttpException){
             emit(Resource.Error(exception.localizedMessage ?: "An unexpected error occurred"))
