@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Weather DVT</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Sorry for the inconvenience. This is a work in progress</string>
     <string name="saved_places">Saved Places</string>
     <string name="favourites">Favourites</string>
     <string name="add_favourites">Add to favourites</string>
@@ -9,4 +9,7 @@
     <string name="nav_header_title">DVT Weather App</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="you_should_be_able_to_view_your_saved_locations_here">You should be able to view your saved locations here</string>
+    <string name="you_should_be_able_to_view_your_favourite_locations_here">You should be able to view your favourite places here</string>
+    <string name="you_should_be_able_to_view_your_setting_locations_here">You should be able to view your Account Setting</string>
 </resources>

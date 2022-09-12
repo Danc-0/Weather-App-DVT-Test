@@ -12,6 +12,7 @@ interface OpenWeatherRepository {
 
     suspend fun getCurrentWeatherForecast(lat: Double, long: Double, cnt: Int): CurrentWeatherForecast
 
+    @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun addToFavourites(savedWeatherItem: SavedWeatherItem)
 

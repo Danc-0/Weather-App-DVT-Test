@@ -32,6 +32,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.nav_header_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 @FragmentScoped
@@ -47,7 +50,6 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
         super.onViewCreated(view, savedInstanceState)
 
         getCurrentLocation(requireContext())
-
 
     }
 
@@ -71,7 +73,7 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
                 if (location != null) {
                         Log.d(TAG, "getCurrentLocation: $location")
                     currentWeather(location.latitude, location.longitude)
-                    currentWeatherForecast(location.latitude, location.longitude, 5)
+                    currentWeatherForecast(location.latitude, location.longitude, 16)
                 }
             }
     }
@@ -89,15 +91,10 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
                             min_temperature.text = tempInCelsius(it.data.main.temp_min)
                             current_temperature.text = tempInCelsius(it.data.main.temp)
                             max_temperature.text = tempInCelsius(it.data.main.temp_max)
+                            city_name.text = it.data.name
                             addToFavourites(currentLocationWeather)
                             when(it.data.weather[0].main) {
                                 "Clouds" -> {
-                                    main_image.setImageResource(R.drawable.sea_cloudy)
-                                    main_fragment.setBackgroundColor(resources.getColor(R.color.cloudy))
-                                    rv_weather_forecast.setBackgroundColor(resources.getColor(R.color.cloudy))
-                                }
-
-                                "Clear" -> {
                                     main_image.setImageResource(R.drawable.sea_cloudy)
                                     main_fragment.setBackgroundColor(resources.getColor(R.color.cloudy))
                                     rv_weather_forecast.setBackgroundColor(resources.getColor(R.color.cloudy))
