@@ -49,6 +49,16 @@ The Architecture Components and Libraries am using in the Development of the who
   * [Retrofit](https://square.github.io/retrofit/) - Class through which API Interfaces turn callable objects
   * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwjJmIBhA4EiwAQdCbxrvUiq3wgakPX8sop8Kp8irusL4bi_9xCnaiZkUJqBzTbOTB2FB4XRoCujoQAvD_BwE&gclsrc=aw.ds) - Manage UI related data in a lifecycle conscious way and act as a channel between use cases and ui
 
+## Getting Started
+  ### Android Studio/Command line
+  1. Android Studio -> File -> New -> From Version control -> Git
+  2.   From the terminal run git clone https://github.com/Danc-0/Weather-App-DVT-Test.git
+  
+  ### Running
+    Create an account in [ OPEN WEATHER API ](https://openweathermap.org/forecast5) and request
+    for  an APIKEY from which go to apikeys.properties file in the build scripts and add it 
+    as API_KEY = "YOURAPIKEY"
+
 # Screenshots
 This is a short demo of how the application looks like
 
