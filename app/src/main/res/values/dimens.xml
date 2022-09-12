@@ -3,4 +3,12 @@
     <dimen name="dimens_20">20dp</dimen>
     <dimen name="vertical_spacing">5dp</dimen>
     <dimen name="dimens_30">30dp</dimen>
+    <dimen name="normal_text_size_18">18sp</dimen>
+    <dimen name="title_text_size_25">25sp</dimen>
+    <dimen name="dimen_0">0dp</dimen>
+    <dimen name="dimens_10">10dp</dimen>
+    <dimen name="dimens_15">15dp</dimen>
+    <dimen name="dimens_35">35dp</dimen>
+    <dimen name="title_text_size_20">20sp</dimen>
+    <dimen name="dimens_16">16dp</dimen>
 </resources>

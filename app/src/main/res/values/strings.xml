@@ -12,4 +12,7 @@
     <string name="you_should_be_able_to_view_your_saved_locations_here">You should be able to view your saved locations here</string>
     <string name="you_should_be_able_to_view_your_favourite_locations_here">You should be able to view your favourite places here</string>
     <string name="you_should_be_able_to_view_your_setting_locations_here">You should be able to view your Account Setting</string>
+    <string name="min">min</string>
+    <string name="current">current</string>
+    <string name="max">max</string>
 </resources>
