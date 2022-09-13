@@ -58,9 +58,23 @@ The Architecture Components and Libraries am using in the Development of the who
   2.   From the terminal run git clone https://github.com/Danc-0/Weather-App-DVT-Test.git
   
   ### Running
-    Create an account in [ OPEN WEATHER API ](https://openweathermap.org/forecast5) and request
-    for  an APIKEY from which go to apikeys.properties file in the build scripts and add it 
-    as API_KEY = "YOURAPIKEY"
+   ```sh
+Create an account with [OPEN WEATHER API](https://openweathermap.org/forecast5)
+```
+
+To access the API_KEY for Authorization when using the APIs
+
+```sh
+Create a apikeys.properties file under the build scripts and add API_KEY = YOURAPIKEY
+```
+
+How to configure your API KEY following the set secret structure
+
+```sh
+Connect your device or set-up your emulator and RUN
+```
+
+----
 
 # Screenshots
 This is a short demo of how the application looks like
