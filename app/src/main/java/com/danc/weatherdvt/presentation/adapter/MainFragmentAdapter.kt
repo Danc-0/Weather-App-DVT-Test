@@ -5,12 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.danc.weatherdvt.R
-import com.danc.weatherdvt.utils.Utils.Companion.tempInCelsius
 import com.danc.weatherdvt.domain.models.forecast.WeatherItem
-import com.danc.weatherdvt.utils.Utils.Companion.getShortDate
-import com.danc.weatherdvt.utils.Utils.Companion.stringtoDate
+import com.danc.weatherdvt.utils.Utils.Companion.tempInCelsius
 import kotlinx.android.synthetic.main.fragment_weather_forecast.view.*
-import java.sql.Date
 
 class MainFragmentAdapter(var weatherForecast: List<WeatherItem>): RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
 
