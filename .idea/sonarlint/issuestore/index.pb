@@ -1,0 +1,19 @@
+
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+C
+fastlane/report.xml,3/5/352b3e61b04df8269574b5043029f76f26a2aebb
+B
+apikeys.properties,d/1/d1bf5d45cba7c55e615c32645807f459a3088379
+d
+4app/src/main/java/com/danc/weatherdvt/utils/Utils.kt,8/1/818352d7191fc87a38cad5010ae49eb64b291254
+|
+Lapp/src/main/java/com/danc/weatherdvt/presentation/fragments/CustomDialog.kt,e/b/eb0fc70a5b105f6b33f3593472aeacadb96c6ba6
+Å
+Qapp/src/main/java/com/danc/weatherdvt/presentation/adapter/MainFragmentAdapter.kt,a/8/a896cdc61889b67ac45a19148bfb5f447375cf7d
+r
+Bapp/src/main/java/com/danc/weatherdvt/presentation/MainActivity.kt,6/4/64c16ba2392939b658556c3302892e5e862d6ab7
+@
+app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
+|
+Lapp/src/main/java/com/danc/weatherdvt/presentation/fragments/MainFragment.kt,8/b/8b29f0b7861b1fa9445c96d75e6fe59c8e9005f6

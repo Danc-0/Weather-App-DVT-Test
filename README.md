@@ -38,7 +38,7 @@ The Architecture Components and Libraries am using in the Development of the who
   * MVVM -- Application Level
   * Android Architecture Components
 
-* Stack
+* Technologies Used
   * [Jetpack](https://developer.android.com/jetpack)🚀 - Libraries that help follow best practices, reduce boilerplate code, and write code that works consistently across Android versions and devices so that developers can focus on the code they care about.
   * [Dagger-Hilt](https://dagger.dev/hilt/) - For dependency injection
   * [ViewBinding](https://developer.android.com/topic/libraries/view-binding) - Support library that allows binding of UI components in layouts to data sources,binds character details and search results to UI.
@@ -48,3 +48,45 @@ The Architecture Components and Libraries am using in the Development of the who
   * [Room](https://developer.android.com/training/data-storage/room) - Provide an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite
   * [Retrofit](https://square.github.io/retrofit/) - Class through which API Interfaces turn callable objects
   * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwjJmIBhA4EiwAQdCbxrvUiq3wgakPX8sop8Kp8irusL4bi_9xCnaiZkUJqBzTbOTB2FB4XRoCujoQAvD_BwE&gclsrc=aw.ds) - Manage UI related data in a lifecycle conscious way and act as a channel between use cases and ui
+
+* CI/CD
+  * [Fastlane](https://docs.fastlane.tools/) -  is the easiest way to automate beta deployments and releases for your Android apps
+
+## Getting Started
+  ### Android Studio/Command line
+  1. Android Studio -> File -> New -> From Version control -> Git
+  2.   From the terminal run git clone https://github.com/Danc-0/Weather-App-DVT-Test.git
+  
+  ### Running
+   ```sh
+Create an account with [OPEN WEATHER API](https://openweathermap.org/forecast5)
+```
+
+To access the API_KEY for Authorization when using the APIs
+
+```sh
+Create a apikeys.properties file under the build scripts and add API_KEY = YOURAPIKEY
+```
+
+How to configure your API KEY following the set secret structure
+
+```sh
+Connect your device or set-up your emulator and RUN
+```
+
+----
+
+# Screenshots
+This is a short demo of how the application looks like
+
+|<img src="images/first_screen.jpg" width=200/>|<img src="images/second_screen.jpg" width=200/>|
+|:----:|:----:|
+  
+ ## Areas of Improvements
+I did not do all the extras.
+
+I have noticed a white screen just when the app is launching and I think It will be best to add a Splash Screen at that point while the app in loading from the backgroud.
+
+Doing more research on the OPEN WEATHER API to understand more of the scenarios.
+
+Will be updating that soon.
