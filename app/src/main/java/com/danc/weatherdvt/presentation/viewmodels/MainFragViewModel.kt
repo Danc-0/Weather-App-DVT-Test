@@ -1,5 +1,6 @@
 package com.danc.weatherdvt.presentation.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.danc.weatherdvt.domain.models.local.SavedWeatherItem
@@ -26,10 +27,10 @@ class MainFragViewModel @Inject constructor(private val openWeatherRepository: O
         }
     }
 
-    fun currentForecast(lat: Double, long: Double, cnt: Int) = flow {
+    fun currentForecast(lat: Double, long: Double) = flow {
         emit(Resource.Loading())
         try {
-            val data = openWeatherRepository.getCurrentWeatherForecast(lat, long, cnt)
+            val data = openWeatherRepository.getCurrentWeatherForecast(lat, long)
             emit(Resource.Success(data))
         } catch (exception: Exception) {
             exception.printStackTrace()
