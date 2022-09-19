@@ -1,23 +1,18 @@
 package com.danc.weatherdvt.presentation.fragments
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
-import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -31,14 +26,10 @@ import com.danc.weatherdvt.utils.Resource
 import com.danc.weatherdvt.utils.Utils.Companion.tempInCelsius
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
-import java.util.concurrent.TimeUnit
-import kotlin.math.log
 
 
 @AndroidEntryPoint
@@ -56,15 +47,6 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext());
-
-        /**
-         *  Check If Location permission is allowed
-         *  IF YES check if Location Access is enabled
-         *  IF NO Request for Location Permission
-         *  IF YES get the Current Location of the User
-         *  Then Get the required user Weather and Forecast
-         *  IF NO Request for Location access to be enabled
-         *  */
         checkLocationPermissions()
 
     }
@@ -72,17 +54,17 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
     private fun isLocationPermissionGranted(): Boolean {
         return if (ActivityCompat.checkSelfPermission(
                 requireContext(),
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 requireContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 requireActivity(),
                 arrayOf(
-                    android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
                 ),
                 PERMISSION_ID
             )
@@ -127,7 +109,7 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
             .addOnSuccessListener { location: Location? ->
                 if (location != null) {
                     currentWeather(location.latitude, location.longitude)
-                    currentWeatherForecast(location.latitude, location.longitude, 16)
+                    currentWeatherForecast(location.latitude, location.longitude)
                 }
             }
     }
@@ -163,8 +145,11 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
             viewmodel.currentWeather(latitude, longitude)
                 .collect() {
                     when (it) {
-                        is Resource.Loading -> {}
+                        is Resource.Loading -> {
+                            process_loading.visibility = View.VISIBLE
+                        }
                         is Resource.Success -> {
+                            process_loading.visibility = View.GONE
                             currentLocationWeather = it.data!!
                             main_temp.text = tempInCelsius(it.data.main.temp)
                             main_description.text = it.data.weather[0].description
@@ -198,15 +183,19 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
         }
     }
 
-    private fun currentWeatherForecast(latitude: Double, longitude: Double, cnt: Int) {
+    private fun currentWeatherForecast(latitude: Double, longitude: Double) {
         lifecycleScope.launchWhenCreated {
-            viewmodel.currentForecast(latitude, longitude, cnt)
+            viewmodel.currentForecast(latitude, longitude)
                 .collect() {
                     when (it) {
-                        is Resource.Loading -> {}
+                        is Resource.Loading -> {
+                            process_loading.visibility = View.VISIBLE
+                        }
                         is Resource.Success -> {
+                            process_loading.visibility = View.GONE
+                            Log.d(TAG, "currentWeatherForecast: ${it.data}")
                             mainFragmentAdapter =
-                                it.data?.let { item -> MainFragmentAdapter(item.list) }
+                                it.data?.let { item -> MainFragmentAdapter(item.daily) }
                             rv_weather_forecast.apply {
                                 layoutManager = LinearLayoutManager(
                                     context,
@@ -216,7 +205,11 @@ class MainFragment : Fragment(R.layout.fragment_main), CustomDialog.OnClick {
                                 setHasFixedSize(true)
                                 adapter = mainFragmentAdapter
                             }
+                        }
 
+                        is Resource.Error -> {
+                            process_loading.visibility = View.GONE
+                            Log.d(TAG, "currentWeatherForecast: ${it.message}")
                         }
                     }
                 }
